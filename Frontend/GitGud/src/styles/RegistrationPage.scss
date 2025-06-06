@@ -1,0 +1,28 @@
+
+.registration-page {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  min-height: 100vh;
+}
+
+.bg-orange {
+  background-color: #f97316;
+  color: white;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  height: 100%;
+}
+
+h3 {
+  color: #1f2937;
+}
+
+.MDBBtn {
+  background-color: #f97316;
+  border: none;
+
+  &:hover {
+    background-color: #ea580c;
+  }
+}

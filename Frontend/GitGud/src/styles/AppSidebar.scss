@@ -1,0 +1,20 @@
+
+
+.sidebar-logo {
+  background-color: #f97316;
+  img {
+    max-width: 80%;
+  }
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+
+  .pro-menu-item {
+    color: red !important;
+    font-weight: 600;
+  }
+}
+

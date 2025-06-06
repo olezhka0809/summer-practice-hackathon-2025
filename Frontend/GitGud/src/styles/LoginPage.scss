@@ -1,0 +1,16 @@
+
+@media (min-width: 1025px) {
+  .h-custom-2 {
+    height: 100%;
+  }
+}
+
+.link-orange {
+  color: #f97316;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: #ea580c;
+  }
+}

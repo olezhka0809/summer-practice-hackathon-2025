@@ -4,6 +4,16 @@
     "dev": "concurrently \"npm run dev --prefix Frontend/GitGud\" \"npm start --prefix Backend\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "sass-embedded": "^1.89.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1",
+    "lucide-react": "^0.513.0",
+    "mdb-react-ui-kit": "^9.0.0",
+    "react-bootstrap": "^2.10.10",
+    "react-icons": "^5.5.0",
+    "react-pro-sidebar": "^0.7.1"
   }
 }
