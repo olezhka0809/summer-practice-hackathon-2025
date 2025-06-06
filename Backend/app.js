@@ -25,9 +25,11 @@ app.use('/api/projects', require('./routes/project'));
 // Rute
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/project');
+const friendsRoutes = require('./routes/friends');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/friends', friendsRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'API GitGud funcționează!' });
