@@ -1,0 +1,9 @@
+{
+  "name": "my-app",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix Frontend/GitGud\" \"npm start --prefix Backend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
