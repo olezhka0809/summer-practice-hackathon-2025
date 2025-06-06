@@ -8,6 +8,7 @@ const AddProjectPage = () => {
   const [techInput, setTechInput] = useState('');
   const [technologies, setTechnologies] = useState([]);
   const [file, setFile] = useState(null);
+  const userId = "6652fa4f19cc71cfeae18a73";
 
   const handleAddTechnology = () => {
     if (techInput && !technologies.includes(techInput)) {
@@ -26,6 +27,7 @@ const AddProjectPage = () => {
   const formData = new FormData();
   formData.append('title', title);
   formData.append('description', description);
+  formData.append("owner", userId);
   
   technologies.forEach((tech) => formData.append('technologies[]', tech)); // trimitem array
   if (file) formData.append('file', file);
