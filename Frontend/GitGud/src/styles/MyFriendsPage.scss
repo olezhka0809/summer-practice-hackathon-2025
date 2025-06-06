@@ -1,0 +1,20 @@
+.my-friends-page {
+  .btn-orange {
+    background-color: #f97316;
+    color: white;
+    border: none;
+
+    &:hover {
+      background-color: #fb923c;
+    }
+  }
+
+  .add-friend-form {
+    max-width: 400px;
+  }
+
+  .friend-card {
+    background: #fff8f1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+}

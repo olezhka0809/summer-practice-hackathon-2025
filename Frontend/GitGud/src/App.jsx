@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import MyProjects from './pages/MyProjects';
 import AddProject from './pages/AddProjectPage';
 import ViewProject from './pages/ViewProjectPage';
+import MyFriends from './pages/MyFriendsPage';
 //styles
 import './App.scss'
 
@@ -25,7 +26,7 @@ function App() {
       <Route path="/myprojects" element={<MyProjects />} />
       <Route path="/addproject" element={<AddProject />} />
       <Route path="/viewproject" element={<ViewProject />} />
-
+      <Route path="/my-friends" element={<MyFriends />} />
     </Routes>
     </>
   )
