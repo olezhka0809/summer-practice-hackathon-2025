@@ -17,7 +17,7 @@ const MyProjectsPage = () => {
     <div className="my-projects-page container">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>My Projects</h2>
-        <Link to="/projects/add" className="btn btn-orange">
+        <Link to="/addproject" className="btn btn-orange">
           <FaPlusCircle className="me-2" /> Add a Project
         </Link>
       </div>

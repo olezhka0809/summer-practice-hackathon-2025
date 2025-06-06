@@ -13,7 +13,7 @@ import {
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../../styles/RegistrationPage.scss';
-import logo from '../../../public/assets/logo.png';
+//import logo from '../../../public/assets/logo.png';
 
 function Registration_Page() {
   const [formData, setFormData] = useState({
@@ -34,15 +34,36 @@ function Registration_Page() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-    setError('');
-    console.log('Form submitted:', formData);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (formData.password !== formData.confirmPassword) {
+    setError('Passwords do not match');
+    return;
+  }
+
+  try {
+    const res = await fetch('http://localhost:5000/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        surname: formData.surname,
+        nickname: formData.nickname,
+        password: formData.password
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.message || 'Registration failed');
+
+    console.log('User registered:', data);
+    // redirect or show success
+  } catch (err) {
+    setError(err.message);
+  }
+};
+
 
   return (
     <MDBContainer fluid className='registration-page'>
@@ -52,7 +73,7 @@ function Registration_Page() {
             <MDBRow className='g-0'>
               <MDBCol md='6' className='bg-orange d-none d-md-block'>
                 <MDBCardImage
-                  src={logo}
+                  src="/assets/logo.png" 
                   alt='Registration Visual'
                   className='w-100 h-100 object-fit-cover'
                 />
@@ -72,6 +93,7 @@ function Registration_Page() {
                     name='name'
                     value={formData.name}
                     onChange={handleChange}
+                    required
                   />
 
                   <MDBInput
@@ -82,6 +104,7 @@ function Registration_Page() {
                     name='surname'
                     value={formData.surname}
                     onChange={handleChange}
+                    required
                   />
 
                   <MDBInput
@@ -92,6 +115,7 @@ function Registration_Page() {
                     name='nickname'
                     value={formData.nickname}
                     onChange={handleChange}
+                    required
                   />
 
                   <div className='mb-4 position-relative'>
@@ -102,6 +126,7 @@ function Registration_Page() {
                       name='password'
                       value={formData.password}
                       onChange={handleChange}
+                      required
                     />
                     <span className='password-toggle-icon' onClick={() => setShowPassword(!showPassword)}>
                       {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -116,6 +141,7 @@ function Registration_Page() {
                       name='confirmPassword'
                       value={formData.confirmPassword}
                       onChange={handleChange}
+                      required
                     />
                     <span className='password-toggle-icon' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
                       {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
