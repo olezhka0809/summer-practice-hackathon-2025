@@ -20,11 +20,33 @@ const AddProjectPage = () => {
     setTechnologies(technologies.filter((t) => t !== tech));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ title, description, technologies, file });
-    // logica de submit către backend
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('description', description);
+  
+  technologies.forEach((tech) => formData.append('technologies[]', tech)); // trimitem array
+  if (file) formData.append('file', file);
+
+  try {
+    const response = await fetch('http://localhost:5000/api/projects/create', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit project');
+    }
+
+    const data = await response.json();
+    console.log('Project created:', data);
+    // Poți adăuga un redirect sau un mesaj de succes
+  } catch (err) {
+    console.error('Upload error:', err);
+  }
+};
 
   return (
     <div className="add-project-page container">

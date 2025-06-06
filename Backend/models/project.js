@@ -5,10 +5,11 @@ const projectSchema = new mongoose.Schema({
   description: { type: String },
   technologies: [{ type: String }],
   files: [{
-    name: String,
-    path: String,
-    uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    uploadedAt: { type: Date, default: Date.now }
+  name: String,
+  path: String, // rămâne dacă vrei intern
+  url: String,  // ← acesta este important pentru frontend
+  uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  uploadedAt: { type: Date, default: Date.now }
   }],
   visibility: {
     type: String,
